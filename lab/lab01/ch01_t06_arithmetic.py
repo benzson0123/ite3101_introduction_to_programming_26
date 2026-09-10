@@ -1,2 +1,2 @@
 product = 2*3
-remainder = 13998%11
+remainder = 1398%11
