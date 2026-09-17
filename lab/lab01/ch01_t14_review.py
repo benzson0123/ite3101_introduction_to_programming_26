@@ -1,2 +1,2 @@
 skill_completed = "Python Syntax"
-exercies_
+exercises_
