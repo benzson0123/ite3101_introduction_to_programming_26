@@ -3,6 +3,6 @@
 # explain it soon!
 
 def spam()
-   print 
+   print("eggs")
 # Define the spam function above this line.
 spam()
