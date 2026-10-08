@@ -4,5 +4,6 @@
 
 def spam()
    print("Eggs")
+   
 # Define the spam function above this line.
 spam()
