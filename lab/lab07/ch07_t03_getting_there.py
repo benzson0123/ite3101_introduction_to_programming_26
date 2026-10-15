@@ -1,4 +1,4 @@
-def hotel_cost(city: str:) -> int:
+def planty: str:) -> int:
     if city =="Charlotta":
         return 183
     elif city == "Tampa":
