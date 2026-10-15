@@ -1,4 +1,4 @@
-def plane_ride_cost
+def plane_ride_cost(city: str) ->int:
     if city =="Charlotta":
         return 183
     elif city == "Tampa":
