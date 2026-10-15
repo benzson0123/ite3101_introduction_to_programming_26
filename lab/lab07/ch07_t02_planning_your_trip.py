@@ -1,1 +1,2 @@
-def hotel_cost(night: int)
+def hotel_cost(nights: int)->int:
+    return 140 * 
