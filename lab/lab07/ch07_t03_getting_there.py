@@ -1,4 +1,4 @@
-def hotel_cost(nights: int) -> int:    
+def hotel_cost(city> int:    
     if city =="Charlotta":
         return 183
     elif city == "Tampa":
