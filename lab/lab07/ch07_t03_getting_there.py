@@ -1,4 +1,4 @@
-def planey: str:) -> int:
+def plane_ride_cost
     if city =="Charlotta":
         return 183
     elif city == "Tampa":
