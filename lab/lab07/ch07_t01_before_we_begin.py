@@ -1,2 +1,2 @@
 def answer()->int:
-    r
+    return 42
