@@ -7,8 +7,6 @@ cat = None
 dog = None
 
 # From the seventh character to the end
-frog = None
-animals = "catdogfrog"
 
 # Assign to dog a slice from index 3 up until (not including) index 6
 dog = animals[3:6]
