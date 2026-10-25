@@ -5,3 +5,5 @@ duck_index = None  # Use index() to find "duck"
 
 
 print(animals)  # Observe what prints after the insert operation
+duck_index = animals.index("duck")
+animals.insert(duck_index, "cobra")
