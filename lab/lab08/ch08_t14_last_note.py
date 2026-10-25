@@ -12,6 +12,6 @@ inventory['burlap bag'] = ['apple', 'small ruby', 'three-toed sloth']
 inventory['pouch'].sort()
 
 # Your code here
-inventory['backpack'].remove('dagger')
+inventory['pouch'].remove('dagger')
 
 inventory['gold'] = inventory['gold'] + 50
