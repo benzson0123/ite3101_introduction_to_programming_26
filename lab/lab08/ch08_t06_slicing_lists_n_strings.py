@@ -13,4 +13,4 @@ animals = "catdogfrog"
 dog = animals[3:6]
 
 # Assign to frog a slice from index 6 until the end
-frog = animals[6:]
+frog = animals[6:1]
