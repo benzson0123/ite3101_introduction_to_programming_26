@@ -14,4 +14,4 @@ del zoo_animals['Sloth']
 del zoo_animals['Bengal Tiger']
 
 
-print(zoo_animals)
+print(zoo_animals)['Rockhopper Penguin'] = 'Antarctic Exhibit'
