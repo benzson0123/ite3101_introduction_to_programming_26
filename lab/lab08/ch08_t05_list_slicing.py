@@ -8,3 +8,5 @@ middle = None
 
 # The last two items (index four and five)
 last = None
+middle = suitcase[2:4]
+last = suitcase[4:6]
