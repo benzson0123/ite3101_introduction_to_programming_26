@@ -6,4 +6,4 @@ def fizz count(x):
     return count
 
 
-print(fizz count(["fizz"]))
+print(fizz count(["fizz", "cat", "fizz"]))
