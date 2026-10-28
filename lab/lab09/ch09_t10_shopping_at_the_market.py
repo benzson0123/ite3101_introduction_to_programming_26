@@ -1,1 +1,1 @@
-groceries = ["banana", "orange"]
+groceries = ["banana", "orange", "apple"]
