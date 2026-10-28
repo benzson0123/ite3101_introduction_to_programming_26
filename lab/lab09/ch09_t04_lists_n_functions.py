@@ -1,1 +1,1 @@
-def fizz# Write your function below!
+def fizz count(x)# Write your function below!
