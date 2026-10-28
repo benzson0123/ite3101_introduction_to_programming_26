@@ -1,1 +1,4 @@
-def fizz count(x)# Write your function below!
+def fizz count(x):
+    count = 0
+    for item in x:
+    # Write your function below!
