@@ -12,7 +12,4 @@ for letter in word:
     if letter == "i":
         print(letter)
 
-word = "supermarket"
 
-for letter in word:
-    print(letter)
