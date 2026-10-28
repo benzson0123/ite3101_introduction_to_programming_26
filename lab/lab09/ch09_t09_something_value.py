@@ -19,4 +19,4 @@ for key in prices:
     print(item_value)
     total += item_value
 
-print("Total inventory value:", total)
+    print("Total inventory value:", total)
