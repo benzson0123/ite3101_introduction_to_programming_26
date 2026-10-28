@@ -16,7 +16,7 @@ total = 0
 
 for key in prices:
     item_value = prices[key] * stock[key]
-    print(item_value)
+    print(int(item_value))  # 轉成整數輸出
     total += item_value
 
-print("Total inventory value:", total)
+print("Total inventory value:", int(total))
