@@ -1,4 +1,4 @@
 def fizz count(x):
     count = 0
     for item in x:
-       if item == # Write your function below!
+       if item == "fizz" # Write your function below!
