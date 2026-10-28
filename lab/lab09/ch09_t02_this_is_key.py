@@ -6,4 +6,5 @@ webster = {
 }
 
 for word in webster:
-    # Add your code below!
+    print(webster[word]
+          # Add your code below!
