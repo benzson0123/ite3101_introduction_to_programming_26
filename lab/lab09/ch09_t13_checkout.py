@@ -32,7 +32,6 @@ stock = {
 def compute_bill(food: List[str]) -> float:
     total = 0
     for item in food:
-        # 先確認商店有沒有賣這個水果，再確認它有沒有庫存
         if item in stock and stock[item] > 0:
             total += prices[item]
             stock[item] -= 1
