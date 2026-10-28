@@ -5,6 +5,8 @@ for letter in "Codecademy":
 print()
 print()
 
+
+
 word = "supermarket"
 
 for letter in word:
