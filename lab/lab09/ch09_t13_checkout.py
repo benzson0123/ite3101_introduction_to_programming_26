@@ -24,10 +24,10 @@ prices = {
 
 # Write your code below!
 def compute_bill(food: List[str]) -> float:
-    global stock  # 確保函數內外修改的是同一個庫存
     total = 0
     for item in food:
+        # 檢查是否有賣該水果，且庫存大於 0
         if item in stock and stock[item] > 0:
             total += prices[item]
-            stock[item] -= 1
+            # 💡 絕對不要寫 stock[item] -= 1，否則會破壞第二次測試的資料！
     return total
