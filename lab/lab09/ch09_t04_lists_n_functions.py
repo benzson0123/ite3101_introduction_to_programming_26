@@ -1,1 +1,1 @@
-# Write your function below!
+def fizz# Write your function below!
