@@ -4,3 +4,6 @@ def fizz count(x):
        if item == "fizz":
            count += 1
     return count
+
+
+print(fizz count(["fizz"]))
