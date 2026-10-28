@@ -14,9 +14,9 @@ stock = {
 
 total = 0
 
-for key in prices:
-    item_value = prices[key] * stock[key]
+for key, price in prices.items():
+    item_value = price * stock[key]
     print(item_value)
     total += item_value
 
-    print("Total inventory value:", total)
+print("Total inventory value:", total)
