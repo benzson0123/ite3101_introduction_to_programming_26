@@ -5,4 +5,5 @@ webster = {
     "Dab": "A small amount."
 }
 
-for word in # Add your code below!
+for word in webster:
+    # Add your code below!
