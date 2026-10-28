@@ -5,3 +5,6 @@ prices = {
     "pear": 3
 }
 
+stock = {
+    
+}
