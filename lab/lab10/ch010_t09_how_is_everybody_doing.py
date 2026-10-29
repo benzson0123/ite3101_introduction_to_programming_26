@@ -20,20 +20,20 @@ tyler = {
     "tests": [100.0, 100.0]
 }
 
-# Create the students list
+# Create the students list (依照測試規定的順序: alice, lloyd, tyler)
 students = [alice, lloyd, tyler]
 
 def average(numbers: List[float]) -> float:
     """Calculate the average of a list of numbers"""
-    return sum(numbers) / len(numbers)
+    total = sum(numbers)
+    return total / len(numbers)
 
 def get_average(student: dict) -> float:
     """Calculate weighted average for a student"""
-    # 為了應對測試工具的 execfile 環境隔離，直接在內部手動做平均計算，避免呼叫外部 average 導致 NameError
-    homework_avg = sum(student["homework"]) / len(student["homework"])
-    quizzes_avg = sum(student["quizzes"]) / len(student["quizzes"])
-    tests_avg = sum(student["tests"]) / len(student["tests"])
-    return 0.1 * homework_avg + 0.3 * quizzes_avg + 0.6 * tests_avg
+    homework = average(student["homework"])
+    quizzes = average(student["quizzes"])
+    tests = average(student["tests"])
+    return 0.1 * homework + 0.3 * quizzes + 0.6 * tests
 
 def get_letter_grade(score: float) -> str:
     """Convert numerical score to letter grade"""
@@ -51,23 +51,11 @@ def get_letter_grade(score: float) -> str:
 def get_class_average(class_list: List[dict]) -> float:
     """Calculate the average score for the entire class"""
     results = []
-    
-    # 透過動態查找取得當前環境中的 get_average 函式
-    import sys
-    calc_avg = getattr(sys.modules[__name__], 'get_average', None)
-    if calc_avg is None:
-        import inspect
-        frame = inspect.currentframe()
-        try:
-            calc_avg = frame.f_back.f_locals.get('get_average', get_average)
-        finally:
-            del frame
-            
     for student in class_list:
-        results.append(calc_avg(student))
-        
-    return sum(results) / len(results)
+        results.append(get_average(student))
+    return average(results)
 
-# 測試輸出
-print(get_class_average(students))
-print(get_letter_grade(get_class_average(students)))
+# 使用 __name__ 保護測試輸出，確保被測試檔 import 時不會噴出錯誤
+if __name__ == "__main__":
+    print(get_class_average(students))
+    print(get_letter_grade(get_class_average(students)))
