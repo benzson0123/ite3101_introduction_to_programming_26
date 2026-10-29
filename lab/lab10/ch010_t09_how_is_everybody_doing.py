@@ -23,10 +23,12 @@ tyler = {
 # Create the students list
 students = [lloyd, alice, tyler]
 
+
 def average(numbers: List[float]) -> float:
     """Calculate the average of a list of numbers"""
     total = sum(numbers)
     return total / len(numbers)
+
 
 def get_average(student: dict) -> float:
     """Calculate weighted average for a student"""
@@ -34,6 +36,7 @@ def get_average(student: dict) -> float:
     quizzes = average(student["quizzes"])
     tests = average(student["tests"])
     return 0.1 * homework + 0.3 * quizzes + 0.6 * tests
+
 
 def get_letter_grade(score: float) -> str:
     """Convert numerical score to letter grade"""
@@ -48,12 +51,14 @@ def get_letter_grade(score: float) -> str:
     else:
         return "F"
 
+
 def get_class_average(class_list: List[dict]) -> float:
     """Calculate the average score for the entire class"""
     results = []
     for student in class_list:
         results.append(get_average(student))
     return average(results)
+
 
 # Test the functions matching exact required assignment output
 print(get_class_average(students))
