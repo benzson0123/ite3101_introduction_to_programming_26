@@ -52,12 +52,10 @@ def get_class_average(class_list: List[dict]) -> float:
     """Calculate the average score for the entire class"""
     results = []
     
-    # 建立一個安全的查找機制，完美適應任何常規或 execfile 測試環境
     import sys
     current_module = sys.modules[__name__]
     calc_avg = getattr(current_module, 'get_average', None)
-    
-    # 如果在目前模組物件找不到，就動態從呼叫棧（Call Stack）的本地空間抓取
+   
     if calc_avg is None:
         import inspect
         frame = inspect.currentframe()
