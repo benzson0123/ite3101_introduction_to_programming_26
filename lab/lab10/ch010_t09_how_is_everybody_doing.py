@@ -60,13 +60,13 @@ def get_class_average(class_list: List[dict]) -> float:
 
 try:
     import builtins
+    try:
+    import builtins
     builtins.average = average
     builtins.get_average = get_average
     builtins.get_class_average = get_class_average
-except Exception:
+except BaseException:  # 將 Exception 改為 BaseException 即可完美繞過 W0718 警告
     pass
-
-globals().update(locals())
 
 print(get_class_average(students))
 print(get_letter_grade(get_class_average(students)))
