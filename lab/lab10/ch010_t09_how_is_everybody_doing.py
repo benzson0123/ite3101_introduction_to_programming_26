@@ -23,10 +23,12 @@ tyler = {
 # Create the students list
 students = [alice, lloyd, tyler]
 
+
 def average(numbers: List[float]) -> float:
     """Calculate the average of a list of numbers"""
     total = sum(numbers)
     return total / len(numbers)
+
 
 def get_average(student: dict) -> float:
     """Calculate weighted average for a student"""
@@ -34,6 +36,7 @@ def get_average(student: dict) -> float:
     quizzes = average(student["quizzes"])
     tests = average(student["tests"])
     return 0.1 * homework + 0.3 * quizzes + 0.6 * tests
+
 
 def get_letter_grade(score: float) -> str:
     """Convert numerical score to letter grade"""
@@ -48,6 +51,7 @@ def get_letter_grade(score: float) -> str:
     else:
         return "F"
 
+
 def get_class_average(class_list: List[dict]) -> float:
     """Calculate the average score for the entire class"""
     results = []
@@ -55,11 +59,11 @@ def get_class_average(class_list: List[dict]) -> float:
         results.append(get_average(student))
     return average(results)
 
+
 globals()['average'] = average
 globals()['get_average'] = get_average
 globals()['get_letter_grade'] = get_letter_grade
 globals()['get_class_average'] = get_class_average
 
-# 測試輸出（由自動閱卷系統直接補捉文字）
 print(get_class_average(students))
 print(get_letter_grade(get_class_average(students)))
