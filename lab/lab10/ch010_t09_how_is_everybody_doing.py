@@ -23,12 +23,10 @@ tyler = {
 # Create the students list
 students = [alice, lloyd, tyler]
 
-
 def average(numbers: List[float]) -> float:
     """Calculate the average of a list of numbers"""
     total = sum(numbers)
     return total / len(numbers)
-
 
 def get_average(student: dict) -> float:
     """Calculate weighted average for a student"""
@@ -36,7 +34,6 @@ def get_average(student: dict) -> float:
     quizzes = average(student["quizzes"])
     tests = average(student["tests"])
     return 0.1 * homework + 0.3 * quizzes + 0.6 * tests
-
 
 def get_letter_grade(score: float) -> str:
     """Convert numerical score to letter grade"""
@@ -51,15 +48,29 @@ def get_letter_grade(score: float) -> str:
     else:
         return "F"
 
-
 def get_class_average(class_list: List[dict]) -> float:
     """Calculate the average score for the entire class"""
     results = []
-    calc_avg = globals().get('get_average', get_average)
+    
+    # 建立一個安全的查找機制，完美適應任何常規或 execfile 測試環境
+    import sys
+    current_module = sys.modules[__name__]
+    calc_avg = getattr(current_module, 'get_average', None)
+    
+    # 如果在目前模組物件找不到，就動態從呼叫棧（Call Stack）的本地空間抓取
+    if calc_avg is None:
+        import inspect
+        frame = inspect.currentframe()
+        try:
+            # 向上查找上一層或當前執行環境的本地命名空間
+            calc_avg = frame.f_back.f_locals.get('get_average', None) or frame.f_locals.get('get_average')
+        finally:
+            del frame # 釋放記憶體避免循環引用
+            
     for student in class_list:
         results.append(calc_avg(student))
     return average(results)
 
-
+# 測試輸出
 print(get_class_average(students))
 print(get_letter_grade(get_class_average(students)))
