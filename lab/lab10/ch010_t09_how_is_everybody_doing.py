@@ -88,10 +88,6 @@ Converts numerical scores to letter grades
 Computes the class average
 Properly displays all results
 
-
-
-
-
 print(get_letter_grade(get_average(lloyd)))
 
 
