@@ -58,9 +58,7 @@ def get_class_average(class_list: List[dict]) -> float:
     for student in class_list:
         results.append(get_average(student))
     
-    # 這裡直接使用 Python 原生的計算，安全繞過外部變數查找問題
     return sum(results) / len(results)
 
-# 測試輸出（execfile 測試工具會直接讀取此處的 stdout 輸出文字）
 print(get_class_average(students))
 print(get_letter_grade(get_class_average(students)))
