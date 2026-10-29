@@ -55,7 +55,6 @@ def get_class_average(class_list: List[dict]) -> float:
         results.append(get_average(student))
     return average(results)
 
-# 使用 __name__ 保護測試輸出，確保被測試檔 import 時不會噴出錯誤
 if __name__ == "__main__":
     print(get_class_average(students))
     print(get_letter_grade(get_class_average(students)))
