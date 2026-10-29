@@ -52,7 +52,6 @@ def get_letter_grade(score: float) -> str:
 def get_class_average(class_list: List[dict]) -> float:
     """Calculate the average score for the entire class"""
     results = []
-    # 建立彈性尋找機制
     func_get_avg = globals().get('get_average', __builtins__.get('get_average', get_average))
     func_avg = globals().get('average', __builtins__.get('average', average))
     for student in class_list:
