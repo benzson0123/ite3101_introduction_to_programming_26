@@ -88,14 +88,6 @@ Converts numerical scores to letter grades
 Computes the class average
 Properly displays all results
 
-Copy
-
-Regenerate
-
-DeepSeek V4 Pro
-
-
-
 
 
 
