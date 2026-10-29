@@ -1,7 +1,5 @@
 from typing import List
-global lloyd
-global alice
-global tyler
+
 # Student data
 lloyd = {
     "name": "Lloyd",
@@ -21,18 +19,19 @@ tyler = {
     "quizzes": [0.0, 75.0, 78.0],
     "tests": [100.0, 100.0]
 }
+
+# 1. Create a list called students and fill it with the three students
 students = [alice, lloyd, tyler]
 
 def average(numbers: List[float]) -> float:
     """Calculate the average of a list of numbers"""
-    total = sum(numbers)
-    return total / len(numbers)
+    return sum(numbers) / len(numbers)
 
 def get_average(student: dict) -> float:
     """Calculate weighted average for a student"""
-    homework = average(student["homework"])
-    quizzes = average(student["quizzes"])
-    tests = average(student["tests"])
+    homework = sum(student["homework"]) / len(student["homework"])
+    quizzes = sum(student["quizzes"]) / len(student["quizzes"])
+    tests = sum(student["tests"]) / len(student["tests"])
     return 0.1 * homework + 0.3 * quizzes + 0.6 * tests
 
 def get_letter_grade(score: float) -> str:
@@ -53,9 +52,7 @@ def get_class_average(class_list: List[dict]) -> float:
     results = []
     for student in class_list:
         results.append(get_average(student))
-    return average(results)
+    return sum(results) / len(results)
 
-globals().update(locals())
-
+# 2. Calculate and print the class average mark
 print(get_class_average(students))
-print(get_letter_grade(get_class_average(students)))
