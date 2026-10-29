@@ -30,7 +30,6 @@ def average(numbers: List[float]) -> float:
 
 def get_average(student: dict) -> float:
     """Calculate weighted average for a student"""
-    # 建立彈性尋找機制，若內建或全域找不到則直接抓取本地變數
     func_avg = globals().get('average', __builtins__.get('average', average))
     homework = func_avg(student["homework"])
     quizzes = func_avg(student["quizzes"])
