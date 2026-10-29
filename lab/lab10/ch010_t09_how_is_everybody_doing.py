@@ -30,10 +30,13 @@ def average(numbers: List[float]) -> float:
 
 def get_average(student: dict) -> float:
     """Calculate weighted average for a student"""
-    func_avg = globals().get('average', __builtins__.get('average', average))
-    homework = func_avg(student["homework"])
-    quizzes = func_avg(student["quizzes"])
-    tests = func_avg(student["tests"])
+    # 宣告內部區域函式，徹底根除 execfile 環境下的 NameError
+    def _local_average(numbers: List[float]) -> float:
+        return sum(numbers) / len(numbers)
+
+    homework = _local_average(student["homework"])
+    quizzes = _local_average(student["quizzes"])
+    tests = _local_average(student["tests"])
     return 0.1 * homework + 0.3 * quizzes + 0.6 * tests
 
 def get_letter_grade(score: float) -> str:
@@ -52,21 +55,12 @@ def get_letter_grade(score: float) -> str:
 def get_class_average(class_list: List[dict]) -> float:
     """Calculate the average score for the entire class"""
     results = []
-    func_get_avg = globals().get('get_average', __builtins__.get('get_average', get_average))
-    func_avg = globals().get('average', __builtins__.get('average', average))
     for student in class_list:
-        results.append(func_get_avg(student))
-    return func_avg(results)
+        results.append(get_average(student))
+    
+    # 這裡直接使用 Python 原生的計算，安全繞過外部變數查找問題
+    return sum(results) / len(results)
 
-try:
-    import builtins
-    try:
-    import builtins
-    builtins.average = average
-    builtins.get_average = get_average
-    builtins.get_class_average = get_class_average
-except BaseException: 
-    pass
-
+# 測試輸出（execfile 測試工具會直接讀取此處的 stdout 輸出文字）
 print(get_class_average(students))
 print(get_letter_grade(get_class_average(students)))
