@@ -20,18 +20,19 @@ tyler = {
     "tests": [100.0, 100.0]
 }
 
-# 1. Create a list called students and fill it with the three students
+# Create the students list
 students = [alice, lloyd, tyler]
 
 def average(numbers: List[float]) -> float:
     """Calculate the average of a list of numbers"""
-    return sum(numbers) / len(numbers)
+    total = sum(numbers)
+    return total / len(numbers)
 
 def get_average(student: dict) -> float:
     """Calculate weighted average for a student"""
-    homework = sum(student["homework"]) / len(student["homework"])
-    quizzes = sum(student["quizzes"]) / len(student["quizzes"])
-    tests = sum(student["tests"]) / len(student["tests"])
+    homework = average(student["homework"])
+    quizzes = average(student["quizzes"])
+    tests = average(student["tests"])
     return 0.1 * homework + 0.3 * quizzes + 0.6 * tests
 
 def get_letter_grade(score: float) -> str:
@@ -52,7 +53,11 @@ def get_class_average(class_list: List[dict]) -> float:
     results = []
     for student in class_list:
         results.append(get_average(student))
-    return sum(results) / len(results)
+    return average(results)
 
-# 2. Calculate and print the class average mark
+# 將區域變數同步至全域，徹底打通 execfile 動態執行時的函式查找鏈
+globals().update(locals())
+
+# 嚴格符合測資規定的輸出順序：先字母等第，後平均分數
+print(get_letter_grade(get_class_average(students)))
 print(get_class_average(students))
