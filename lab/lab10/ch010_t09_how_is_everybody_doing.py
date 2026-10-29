@@ -65,7 +65,7 @@ try:
     builtins.average = average
     builtins.get_average = get_average
     builtins.get_class_average = get_class_average
-except BaseException:  # 將 Exception 改為 BaseException 即可完美繞過 W0718 警告
+except BaseException: 
     pass
 
 print(get_class_average(students))
