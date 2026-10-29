@@ -30,7 +30,6 @@ def average(numbers: List[float]) -> float:
 
 def get_average(student: dict) -> float:
     """Calculate weighted average for a student"""
-    # 宣告內部區域函式，徹底根除 execfile 環境下的 NameError
     def _local_average(numbers: List[float]) -> float:
         return sum(numbers) / len(numbers)
 
