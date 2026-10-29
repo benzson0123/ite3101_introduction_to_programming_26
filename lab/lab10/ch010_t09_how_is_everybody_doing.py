@@ -25,15 +25,15 @@ students = [alice, lloyd, tyler]
 
 def average(numbers: List[float]) -> float:
     """Calculate the average of a list of numbers"""
-    total = sum(numbers)
-    return total / len(numbers)
+    return sum(numbers) / len(numbers)
 
 def get_average(student: dict) -> float:
     """Calculate weighted average for a student"""
-    homework = average(student["homework"])
-    quizzes = average(student["quizzes"])
-    tests = average(student["tests"])
-    return 0.1 * homework + 0.3 * quizzes + 0.6 * tests
+    # 為了應對測試工具的 execfile 環境隔離，直接在內部手動做平均計算，避免呼叫外部 average 導致 NameError
+    homework_avg = sum(student["homework"]) / len(student["homework"])
+    quizzes_avg = sum(student["quizzes"]) / len(student["quizzes"])
+    tests_avg = sum(student["tests"]) / len(student["tests"])
+    return 0.1 * homework_avg + 0.3 * quizzes_avg + 0.6 * tests_avg
 
 def get_letter_grade(score: float) -> str:
     """Convert numerical score to letter grade"""
@@ -52,22 +52,21 @@ def get_class_average(class_list: List[dict]) -> float:
     """Calculate the average score for the entire class"""
     results = []
     
+    # 透過動態查找取得當前環境中的 get_average 函式
     import sys
-    current_module = sys.modules[__name__]
-    calc_avg = getattr(current_module, 'get_average', None)
-   
+    calc_avg = getattr(sys.modules[__name__], 'get_average', None)
     if calc_avg is None:
         import inspect
         frame = inspect.currentframe()
         try:
-            # 向上查找上一層或當前執行環境的本地命名空間
-            calc_avg = frame.f_back.f_locals.get('get_average', None) or frame.f_locals.get('get_average')
+            calc_avg = frame.f_back.f_locals.get('get_average', get_average)
         finally:
-            del frame # 釋放記憶體避免循環引用
+            del frame
             
     for student in class_list:
         results.append(calc_avg(student))
-    return average(results)
+        
+    return sum(results) / len(results)
 
 # 測試輸出
 print(get_class_average(students))
