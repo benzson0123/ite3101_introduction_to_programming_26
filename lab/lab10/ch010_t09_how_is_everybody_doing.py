@@ -1,5 +1,5 @@
 from typing import List
-
+global 
 # Student data
 lloyd = {
     "name": "Lloyd",
