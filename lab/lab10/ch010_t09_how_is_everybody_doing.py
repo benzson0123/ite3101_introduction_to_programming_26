@@ -55,11 +55,6 @@ def get_class_average(class_list: List[dict]) -> float:
         results.append(get_average(student))
     return average(results)
 
-# Test the functions
-print("Individual student grades:")
-for s in students:  # Changed 'student' to 's'
-    avg = get_average(s)
-    grade = get_letter_grade(avg)
-    print(f"{s['name']}: {avg:.2f} -> {grade}")   
-print(f"\nClass average: {get_class_average(students):.2f}")
-print(f"Class letter grade: {get_letter_grade(get_class_average(students))}")
+# Test the functions matching exact required assignment output
+print(get_class_average(students))
+print(get_letter_grade(get_class_average(students)))
