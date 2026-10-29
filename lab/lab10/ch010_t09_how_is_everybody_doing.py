@@ -60,8 +60,6 @@ def get_class_average(class_list: List[dict]) -> float:
         results.append(func_get_avg(student))
     return func_avg(results)
 
-# 終極同步機制：直接向 Python 最底層的內建命名空間注入函式名稱
-# 這能強行突破 execfile 帶來的 exec 變數空間污染
 try:
     import builtins
     builtins.average = average
@@ -70,9 +68,7 @@ try:
 except Exception:
     pass
 
-# 將局部變數與全域強制打通
 globals().update(locals())
 
-# 測試輸出
 print(get_class_average(students))
 print(get_letter_grade(get_class_average(students)))
