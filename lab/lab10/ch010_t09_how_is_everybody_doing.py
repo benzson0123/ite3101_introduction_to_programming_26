@@ -23,10 +23,12 @@ tyler = {
 # Create the students list
 students = [alice, lloyd, tyler]
 
+
 def average(numbers: List[float]) -> float:
     """Calculate the average of a list of numbers"""
     total = sum(numbers)
     return total / len(numbers)
+
 
 def get_average(student: dict) -> float:
     """Calculate weighted average for a student"""
@@ -34,6 +36,7 @@ def get_average(student: dict) -> float:
     quizzes = average(student["quizzes"])
     tests = average(student["tests"])
     return 0.1 * homework + 0.3 * quizzes + 0.6 * tests
+
 
 def get_letter_grade(score: float) -> str:
     """Convert numerical score to letter grade"""
@@ -48,15 +51,15 @@ def get_letter_grade(score: float) -> str:
     else:
         return "F"
 
+
 def get_class_average(class_list: List[dict]) -> float:
     """Calculate the average score for the entire class"""
     results = []
-    # 透過 globals().get() 安全取用，繞過單元測試環境中的命名空間隔離問題
     calc_avg = globals().get('get_average', get_average)
     for student in class_list:
         results.append(calc_avg(student))
     return average(results)
 
-# 測試輸出
+
 print(get_class_average(students))
 print(get_letter_grade(get_class_average(students)))
