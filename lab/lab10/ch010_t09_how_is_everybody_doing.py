@@ -20,7 +20,7 @@ tyler = {
     "tests": [100.0, 100.0]
 }
 
-# Create the students list (這裡必須嚴格依照測試規定的順序: alice, lloyd, tyler)
+# Create the students list
 students = [alice, lloyd, tyler]
 
 def average(numbers: List[float]) -> float:
@@ -51,10 +51,12 @@ def get_letter_grade(score: float) -> str:
 def get_class_average(class_list: List[dict]) -> float:
     """Calculate the average score for the entire class"""
     results = []
+    # 透過 globals().get() 安全取用，繞過單元測試環境中的命名空間隔離問題
+    calc_avg = globals().get('get_average', get_average)
     for student in class_list:
-        results.append(get_average(student))
+        results.append(calc_avg(student))
     return average(results)
 
-# 測試輸出符合自動閱卷系統規定（不可加入多餘的中文字、英文字元，並在最後留一行空白換行）
+# 測試輸出
 print(get_class_average(students))
 print(get_letter_grade(get_class_average(students)))
