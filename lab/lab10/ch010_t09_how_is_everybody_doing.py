@@ -55,9 +55,7 @@ def get_class_average(class_list: List[dict]) -> float:
         results.append(get_average(student))
     return average(results)
 
-# 將區域變數同步至全域，徹底打通 execfile 動態執行時的函式查找鏈
 globals().update(locals())
 
-# 嚴格符合測資規定的輸出順序：先字母等第，後平均分數
 print(get_letter_grade(get_class_average(students)))
 print(get_class_average(students))
