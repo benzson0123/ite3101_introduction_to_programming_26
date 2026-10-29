@@ -2,9 +2,6 @@ from typing import List
 global lloyd
 global alice
 global tyler
-global 
-
-
 # Student data
 lloyd = {
     "name": "Lloyd",
