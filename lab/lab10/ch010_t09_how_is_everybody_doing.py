@@ -60,7 +60,6 @@ print("Individual student grades:")
 for s in students:  # Changed 'student' to 's'
     avg = get_average(s)
     grade = get_letter_grade(avg)
-    print(f"{s['name']}: {avg:.2f} -> {grade}")
-    
+    print(f"{s['name']}: {avg:.2f} -> {grade}")   
 print(f"\nClass average: {get_class_average(students):.2f}")
 print(f"Class letter grade: {get_letter_grade(get_class_average(students))}")
