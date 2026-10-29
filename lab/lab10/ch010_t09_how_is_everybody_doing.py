@@ -55,7 +55,6 @@ def get_class_average(class_list: List[dict]) -> float:
         results.append(get_average(student))
     return average(results)
 
-# 強制將函式寫入全域字典，完美破解測試框架 execfile 帶來的區域變數隔離 Bug
 globals()['average'] = average
 globals()['get_average'] = get_average
 globals()['get_letter_grade'] = get_letter_grade
