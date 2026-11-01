@@ -4,4 +4,6 @@ def total(numbers):
     result = 0
     for item in numbers:
         result +- item
-    return 
+    return result
+
+print(total(n))
