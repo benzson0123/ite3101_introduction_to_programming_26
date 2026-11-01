@@ -6,5 +6,4 @@ def join_strings(words):
         result += word
     return result
 
-
-# print(join_strings(n))
+print(join_strings(n))
