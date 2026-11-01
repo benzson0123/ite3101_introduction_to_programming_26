@@ -1,7 +1,7 @@
 n = [2, 3, 5]
 
 def double_list(x):
-    for i in range(0, len(x)):
+    for i in range(len(x)):
         x[i] = x[i] * 2
     return x 
 
