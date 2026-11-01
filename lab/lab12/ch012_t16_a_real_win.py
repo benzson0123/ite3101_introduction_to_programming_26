@@ -35,7 +35,7 @@ for turn in range(4):
 
     if guess_row == ship_row and guess_col == ship_col:
         print("Congratulations! You sank my battleship!")
-        break  # ✨ 關鍵：猜中時立即 break 結束迴圈，贏得真正的勝利！
+        break  # 猜中戰艦，直接結束遊戲
     else:
         if guess_row not in range(5) or guess_col not in range(5):
             print("Oops, that's not even in the ocean.")
@@ -45,9 +45,9 @@ for turn in range(4):
             print("You missed my battleship!")
             board[guess_row][guess_col] = "X"
         
-        # 如果到了第四回合（最後一輪）依然猜錯，先印出 Game Over
+        # 如果到了第四回合（最後一輪）依然猜錯
         if turn == 3:
             print("Game Over")
-        
-        # 最後再印出地圖
-        print_board(board)
+        else:
+            # 只有在第 1、2、3 回合猜錯時，才印出地圖
+            print_board(board)
