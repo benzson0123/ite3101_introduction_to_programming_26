@@ -6,4 +6,4 @@ def my_function(x):
         x[i] = x[i] * 2
     return result
 
-# print(my_function(____))  # Add your range between the parentheses!
+print(my_function(____))  # Add your range between the parentheses!
