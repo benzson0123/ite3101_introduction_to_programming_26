@@ -4,4 +4,4 @@ n = 13
 def add function(x, y):
     return x + y
 
-print
+print(add function())
