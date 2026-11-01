@@ -1,14 +1,14 @@
 from random import randint
-from typing import List
 
 board = []
-
-for x in range(0, 5):
+for x in range(5):
     board.append(["O"] * 5)
 
+def random_row(board_in):
+    return randint(0, len(board_in) - 1)
 
-def print_board(board_in: List[List[str]]) -> None:
-    for row in board_in:
-        print(" ".join(row))
+def random_col(board_in):
+    return randint(0, len(board_in[0]) - 1)
 
-# Add your code below!
+ship_row = random_row(board)
+ship_col = random_col(board)
