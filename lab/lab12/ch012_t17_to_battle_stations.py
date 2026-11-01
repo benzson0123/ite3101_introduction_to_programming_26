@@ -23,8 +23,7 @@ def random_col(board_in: List[List[str]]) -> int:
 ship_row = random_row(board)
 ship_col = random_col(board)
 
-print(ship_row)
-print(ship_col)
+# ✨ 修正 1：移除了 print(ship_row) 和 print(ship_col)，符合真正遊戲的規格
 
 # Everything from here on should be in your for loop
 # don't forget to properly indent!
@@ -44,7 +43,10 @@ for turn in range(4):
         else:
             print("You missed my battleship!")
             board[guess_row][guess_col] = "X"
+        
+        # ✨ 修正 2：確保第四回合猜錯時的輸出順序。
+        # 移除原本的 break，讓程式能完整跑完地圖印製與結束流程
         if turn == 3:
             print("Game Over")
-            break
-        print_board(board)
+        else:
+            print_board(board)
