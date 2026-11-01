@@ -5,5 +5,4 @@ def double_list(x):
         x[i] = x[i] * 2
     return x 
 # Don't forget to return your new list!
-
 print(double_list(n))
