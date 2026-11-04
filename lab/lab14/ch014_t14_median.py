@@ -3,4 +3,5 @@ def median(lst):
     n = len(sorted_lst)
 
     if n % 2 == 1:
-        # If odd, return the middle 
+        # If odd, return the middle element
+        
