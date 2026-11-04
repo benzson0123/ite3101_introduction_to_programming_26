@@ -8,3 +8,4 @@ def scrabble_score(word):
     total = 0
     for char in word.lower():
         total += score[char]
+        
