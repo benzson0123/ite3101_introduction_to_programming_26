@@ -1,0 +1,2 @@
+def median(lst):
+    sorted 
