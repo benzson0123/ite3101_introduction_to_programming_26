@@ -5,4 +5,6 @@ for c in thing:
 
 word = "eggs!"
 
-for c in world:# Your code here!
+for c in word:
+    print(c)
+    # Your code here!
