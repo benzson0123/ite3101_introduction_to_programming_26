@@ -1,1 +1,1 @@
-def remove
+def remove_duplicates(lst)
