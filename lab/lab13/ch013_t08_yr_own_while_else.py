@@ -5,4 +5,4 @@ random_number = randint(1, 10)
 
 guesses_left = 3
 # Start your game!
-while gess
+while guesses_left
