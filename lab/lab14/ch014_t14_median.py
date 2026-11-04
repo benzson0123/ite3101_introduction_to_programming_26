@@ -1,2 +1,2 @@
 def median(lst):
-    sorted 
+    sorted_lst = 
