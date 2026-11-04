@@ -1,4 +1,4 @@
-fruits = ['banana', 'apple', 'orange', 'tomato', 'pear', 'grape']
+fruits = ['banana', 'apple', 'orange', 'pear', 'grape']
 
 print('You have...')
 for f in fruits:
