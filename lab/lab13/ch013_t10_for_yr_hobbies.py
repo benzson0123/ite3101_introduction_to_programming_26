@@ -1,4 +1,5 @@
 hobbies = []
 
 for i in range(3)
-# Add your code below!
+    hobby = input("Enter a hobby
+                  # Add your code below!
